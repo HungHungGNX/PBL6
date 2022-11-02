@@ -1,0 +1,23 @@
+npx create-react-app nameproject
+cd my-app
+npm start
+rfce
+npm install react-bootstrap
+npm install react-router-dom react-router-bootstrap
+pip install virtualenv
+pip list
+pip install virtualenv
+virtualenv myenv
+myenv\scripts\activate
+django-admin startproject backend
+python manage.py runserver
+python manage.py startapp base
+pip install djangorestframework
+npm install axios
+python -m pip install django-cors-headers
+python manage.py migrate
+python manage.py makemigrations
+python manage.py createsuperuser
+pip install pillow
+npm install redux react-redux redux-thunk redux-devtools-extension
+pip install djangorestframework-simplejwt
