@@ -9,7 +9,7 @@ import {
   Form,
   Button,
   Card,
-  ListGroupItem,
+  ListGroupItem
 } from "react-bootstrap";
 import Message from "../components/Message";
 import { addToCart,removeFromCart } from "../actions/cartActions";
@@ -64,7 +64,7 @@ function CartScreen({ match }) {
                   <Col md={2}>${item.price}</Col>
 
                   <Col md={2}>
-                    <Form.Control
+                    {/* <Form.Control
                       as="select"
                       value={item.qty}
                       onChange={(e) => dispatch(addToCart(item.product,Number(e.target.value)))}
@@ -74,10 +74,11 @@ function CartScreen({ match }) {
                           {x + 1}
                         </option>
                       ))}
-                    </Form.Control>
+                    </Form.Control> */}
+                    <input type="number" min = {1} max = {Number(item.countInStock)} className="input-number" name="name"  value={Number(item.qty)} onChange={(e) => dispatch(addToCart(item.product,Number(e.target.value)))} />
                   </Col>
 
-                  <Col md ={3}>
+                  <Col md ={2}>
                         <Button type = 'button' variant = 'light' onClick= {() => removeFromCartHandler(item.product)}>
                               <i className="fa fa-trash"></i>
                         </Button>
