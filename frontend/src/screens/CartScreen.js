@@ -19,7 +19,7 @@ import { useSearchParams } from "react-router-dom";
 function CartScreen({ match }) {
   const { id } = useParams();
   const navigate = useNavigate();
-  let [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const qty = searchParams.get("qty") ? Number(searchParams.get("qty")) : 1;
   const cart = useSelector((state) => state.cart);
   const cartItems = cart.cartItems;
@@ -58,26 +58,16 @@ function CartScreen({ match }) {
                     <Image src={item.image} alt={item.name} fluid rounded />
                   </Col>
                   <Col md={3}>
-                    <Link to={`/products/${item.product}`}>{item.name}</Link>
+                    <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </Col>
 
                   <Col md={2}>${item.price}</Col>
 
                   <Col md={2}>
-                    <Form.Control
-                      as="select"
-                      value={item.qty}
-                      onChange={(e) => dispatch(addToCart(item.product,Number(e.target.value)))}
-                    >
-                      {[...Array(item.countInStock).keys()].map((x) => (
-                        <option key={x + 1} value={x + 1}>
-                          {x + 1}
-                        </option>
-                      ))}
-                    </Form.Control>
+                    <input type="number" min = {1} max = {Number(item.countInStock)} className="input-number" name="name"  value={Number(item.qty)} onChange={(e) => dispatch(addToCart(item.product,Number(e.target.value)))} />
                   </Col>
 
-                  <Col md ={3}>
+                  <Col md ={2}>
                         <Button type = 'button' variant = 'light' onClick= {() => removeFromCartHandler(item.product)}>
                               <i className="fa fa-trash"></i>
                         </Button>
@@ -98,10 +88,9 @@ function CartScreen({ match }) {
                  <ListGroup.Item>
                         <Button
                             type='button'
-                            className='btn-block'
+                            className='btn-block rounded-pill btn-proceed-checkout'
                             disabled={cartItems.length === 0}
-                            onClick={checkoutHandler}
-                        >
+                            onClick={checkoutHandler}>
                             Proceed To Checkout
                         </Button>
                 </ListGroup.Item>

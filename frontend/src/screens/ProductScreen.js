@@ -92,7 +92,7 @@ function ProductScreen({ match}) {
                     <Row>
                       <Col>Qty</Col>
                       <Col xs="auto" className="my-1">
-                        <Form.Control
+                        {/* <Form.Control
                           as="select"
                           value={qty}
                           onChange={(e) => setQty(e.target.value)}
@@ -102,7 +102,8 @@ function ProductScreen({ match}) {
                               {x + 1}
                             </option>
                           ))}
-                        </Form.Control>
+                        </Form.Control> */}
+                        <input type="number" min = {1} max = {Number(product.countInStock)} className="input-number" name="name"  value={Number(qty)} onChange={(e) => setQty(e.target.value)} />
                       </Col>
                     </Row>
                   </ListGroup.Item>
@@ -110,7 +111,7 @@ function ProductScreen({ match}) {
                 <ListGroup.Item>
                   <Button
                     onClick={addToCartHandler}
-                    className="btn-block"
+                    className="btn-block rounded-pill btn-add-cart"
                     disabled={product.countInStock == 0}
                     type="button"
                   >
