@@ -131,3 +131,15 @@ margin: 0 auto;
   font-size: 2.5vw;
 }
 } */
+<<<<<<< HEAD
+=======
+
+.input-number {
+  width: 100%;
+  padding:10px 0;
+  outline:none;
+  border:none;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+>>>>>>> 848d4a64d7693b55581887065adc792bcb74256d
