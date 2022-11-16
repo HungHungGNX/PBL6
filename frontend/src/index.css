@@ -100,7 +100,7 @@ margin:0.1rem;
 }
 
 /* carousel */
-/* .carousel-item-next,
+.carousel-item-next,
 .carousel-item-prev,
 .carousel-item.active {
 display: flex;
@@ -118,9 +118,9 @@ color: #fff;
 display:block;
 height: 300px;
 padding: 30px;
-margin: 40px; */
-/* border-radius: 50%; */
-/* margin-left: auto;
+margin: 40px; 
+border-radius: 50%; 
+margin-left: auto;
 margin-right: auto;
 }
 .carousel a {
@@ -130,16 +130,8 @@ margin: 0 auto;
 .carousel-caption h2 {
   font-size: 2.5vw;
 }
-} */
-<<<<<<< HEAD
-=======
-
-.input-number {
-  width: 100%;
-  padding:10px 0;
-  outline:none;
-  border:none;
-  border-bottom: 1px solid #ccc;
-  text-align: center;
 }
->>>>>>> 848d4a64d7693b55581887065adc792bcb74256d
+
+.breadcrumb {
+  border-bottom: 2px solid cornflowerblue;
+}
