@@ -5,6 +5,7 @@ import Product from "../components/Product"
 import { listProducts } from "../actions/productActions"
 import Loader from '../components/Loader'
 import Message from "../components/Message"
+import '../bootstrap.min.css'
 
 function HomeScreen() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function HomeScreen() {
 
   return (
     <div>
-      <h1>Latest Products</h1>
+      <h1 style = {{textAlign: 'center',borderRadius: '5px'}}>Latest Products</h1>
       {loading ? <Loader/> :error ? <Message variant='danger'>{error}</Message> : <Row>
           {products.map((product) => (
             <Col key={product._id} sm={12} md={6} lg={4} xl={3}>

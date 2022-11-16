@@ -1,13 +1,15 @@
 import { useState, useEffect, React } from "react";
 import { Link } from "react-router-dom";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import { Form, Button, Row, Col, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { getUserDetails,updateUserProfile } from "../actions/userActions";
+import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import FormContainer from "../components/FormContainer";
 import { useNavigate } from "react-router-dom";
-import {USER_UPDATE_PROFILE_RESET} from '../constants/userConstants'
+import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
+import { listMyOrders } from "../actions/orderActions";
 
 function ProfileScreen() {
   const [name, setName] = useState("");
@@ -25,22 +27,26 @@ function ProfileScreen() {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  const userUpdateProfile = useSelector(state => state.userUpdateProfile)
-  const { success } = userUpdateProfile
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
+  const { success } = userUpdateProfile;
+
+  const orderListMy = useSelector((state) => state.orderListMy);
+  const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
 
   useEffect(() => {
     if (!userInfo) {
       navigate("/login");
     } else {
       if (!user || !user.name || success) {
-        dispatch({ type: USER_UPDATE_PROFILE_RESET })
-        dispatch(getUserDetails('profile'))
+        dispatch({ type: USER_UPDATE_PROFILE_RESET });
+        dispatch(getUserDetails("profile"));
+        dispatch(listMyOrders());
       } else {
         setName(user.name);
         setEmail(user.email);
       }
     }
-  }, [dispatch, navigate, userInfo, user,success]);
+  }, [dispatch, navigate, userInfo, user, success]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -48,15 +54,21 @@ function ProfileScreen() {
     if (password != confirmPassword) {
       setMessage("Passwords do not match");
     } else {
-      dispatch(updateUserProfile({
-        'id': user._id,
-        'name': name,
-        'email': email,
-        'password': password
-    }))
-    setMessage('Success')
+      dispatch(
+        updateUserProfile({
+          id: user._id,
+          name: name,
+          email: email,
+          password: password,
+        })
+      );
+      setMessage("Success");
     }
   };
+
+
+  console.log(orders)
+
   return (
     <div>
       <Row>
@@ -66,8 +78,7 @@ function ProfileScreen() {
           {error && <Message variant="danger">{error}</Message>}
           {loading && <Loader />}
           <Form onSubmit={submitHandler}>
-
-          <Form.Group controlId="name">
+            <Form.Group controlId="name">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 required
@@ -116,15 +127,58 @@ function ProfileScreen() {
             <Button
               type="submit"
               variant="primary"
-              className="mt-4 rounded-pill w-100 btn-sign-in">
-                Update
+              className="mt-4 rounded-pill w-100 btn-sign-in"
+            >
+              Update
             </Button>
-
           </Form>
         </Col>
 
         <Col md={9}>
           <h2>My Orders</h2>
+          {loadingOrders ? (
+            <Loader />
+          ) : errorOrders ? (
+            <Message variant="danger">{errorOrders}</Message>
+          ) : (
+            <Table striped responsive className="table-sm">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Date</th>
+                  <th>Total</th>
+                  <th>Paid</th>
+                  <th>Delivered</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {orders.map((order) => (
+                  <tr key={order._id}>
+                    <td>{order._id}</td>
+                    <td>{order.createAt.substring(0, 10)}</td>
+                    <td>${order.totalPrice}</td>
+                    <td>
+                      {order.isPaid ? (
+                        order.paidAt
+                      ) : (
+                        <i
+                          className="fas fa-times"
+                          style={{ color: "red" }}
+                        ></i>
+                      )}
+                    </td>
+                    <td>
+                      <LinkContainer to={`/order/${order._id}`}>
+                        <Button className="btn-sm btn-block rounded-pill btn-proceed-checkout" >Details</Button>
+                      </LinkContainer>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          )}
         </Col>
       </Row>
     </div>

@@ -9,7 +9,7 @@ import {
   Form,
   Button,
   Card,
-  ListGroupItem,
+  ListGroupItem
 } from "react-bootstrap";
 import Message from "../components/Message";
 import { addToCart,removeFromCart } from "../actions/cartActions";
@@ -23,6 +23,8 @@ function CartScreen({ match }) {
   const qty = searchParams.get("qty") ? Number(searchParams.get("qty")) : 1;
   const cart = useSelector((state) => state.cart);
   const cartItems = cart.cartItems;
+  const userLogin = useSelector((state) => state.userLogin)
+  const userInfo =  userLogin.userInfo;
 
   const dispatch = useDispatch();
 
@@ -38,7 +40,12 @@ function CartScreen({ match }) {
   }
 
   const checkoutHandler = () => {
-      navigate(`/login?redirect=shipping`)
+    if(userInfo){
+      navigate('/shipping')
+    }
+    else {
+      navigate('/login?redirect=shipping')
+    }
   }
 
   return (
