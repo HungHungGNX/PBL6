@@ -23,6 +23,8 @@ function CartScreen({ match }) {
   const qty = searchParams.get("qty") ? Number(searchParams.get("qty")) : 1;
   const cart = useSelector((state) => state.cart);
   const cartItems = cart.cartItems;
+  const userLogin = useSelector((state) => state.userLogin)
+  const userInfo =  userLogin.userInfo;
 
   const dispatch = useDispatch();
 
@@ -38,7 +40,12 @@ function CartScreen({ match }) {
   }
 
   const checkoutHandler = () => {
-      navigate(`/login?redirect=shipping`)
+    if(userInfo){
+      navigate('/shipping')
+    }
+    else {
+      navigate('/login?redirect=shipping')
+    }
   }
 
   return (
@@ -64,20 +71,6 @@ function CartScreen({ match }) {
                   <Col md={2}>${item.price}</Col>
 
                   <Col md={2}>
-<<<<<<< HEAD
-=======
-                    {/* <Form.Control
-                      as="select"
-                      value={item.qty}
-                      onChange={(e) => dispatch(addToCart(item.product,Number(e.target.value)))}
-                    >
-                      {[...Array(item.countInStock).keys()].map((x) => (
-                        <option key={x + 1} value={x + 1}>
-                          {x + 1}
-                        </option>
-                      ))}
-                    </Form.Control> */}
->>>>>>> 848d4a64d7693b55581887065adc792bcb74256d
                     <input type="number" min = {1} max = {Number(item.countInStock)} className="input-number" name="name"  value={Number(item.qty)} onChange={(e) => dispatch(addToCart(item.product,Number(e.target.value)))} />
                   </Col>
 
