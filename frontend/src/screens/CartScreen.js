@@ -9,12 +9,13 @@ import {
   Form,
   Button,
   Card,
-  ListGroupItem
+  ListGroupItem,Container,
 } from "react-bootstrap";
 import Message from "../components/Message";
 import { addToCart,removeFromCart } from "../actions/cartActions";
 import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
+import Header from "../components/Header";
 
 function CartScreen({ match }) {
   const { id } = useParams();
@@ -49,6 +50,10 @@ function CartScreen({ match }) {
   }
 
   return (
+    <div>
+    <Header></Header>
+    <main className="py-3">
+    <Container>
     <Row>
       <Col md={8}>
         <h1>Shopping Cart</h1>
@@ -105,6 +110,9 @@ function CartScreen({ match }) {
         </Card>
       </Col>
     </Row>
+    </Container>
+    </main>
+    </div>
   );
 }
 

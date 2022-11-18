@@ -9,12 +9,14 @@ import {
   Button,
   Card,
   Form,
+  Container,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { listProductDetails } from "../actions/productActions";
 import { useNavigate } from 'react-router-dom';
+import Header from "../components/Header";
 
 function ProductScreen({ match}) {
   const navigate = useNavigate();
@@ -34,7 +36,10 @@ function ProductScreen({ match}) {
 
   return (
     <div>
-      <Link to="/" className="btn btn-light my-3">
+    <Header/>
+        <main className="py-3 mt-5">
+          <Container>
+          <Link to="/" className="btn btn-light my-3">
         Go Back
       </Link>
       {loading ? (
@@ -123,6 +128,8 @@ function ProductScreen({ match}) {
           </Col>
         </Row>
       )}
+          </Container>
+        </main>
     </div>
   );
 }

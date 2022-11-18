@@ -13,13 +13,14 @@ import ShippingScreen from "./screens/ShippingScreen"
 import PaymentScreen from "./screens/PaymentScreen"
 import PlaceOrderScreen from './screens/PlaceOrderScreen'
 import OrderScreen from "./screens/OrderScreen"
+import HomePageScreen from "./screens/HomePageScreen"
 
 function App() {
   return (
     <Router>
-      <Header />
-      <main className="py-3">
-        <Container>
+      {/* <Header /> */}
+      {/* <main className="py-3"> */}
+        {/* <Container> */}
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/login" element={<LoginScreen />} />
@@ -32,9 +33,10 @@ function App() {
             <Route path='/payment' element={<PaymentScreen />} />
             <Route path='/placeorder' element={<PlaceOrderScreen />} />
             <Route path='/order/:id' element={<OrderScreen />} />
+            <Route path='/homepage' element={<HomePageScreen />} />
           </Routes>
-        </Container>
-      </main>
+        {/* </Container> */}
+      {/* </main> */}
       {/* <Footer /> */}
     </Router>
   );

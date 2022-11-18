@@ -1,6 +1,6 @@
 import { useState, useEffect, React } from "react";
 import { Link } from "react-router-dom";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Row, Col ,Container} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -36,6 +36,8 @@ function LoginScreen() {
   };
 
   return (
+    <main className="py-3 mt-5">
+    <Container>
     <FormContainer>
       <Row className="justify-content-md-center">
         <Col md={5}>
@@ -94,6 +96,7 @@ function LoginScreen() {
         </Col>
       </Row>
     </FormContainer>
+    </Container></main>
   );
 }
 
