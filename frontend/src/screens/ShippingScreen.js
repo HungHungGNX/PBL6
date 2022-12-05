@@ -28,7 +28,7 @@ function ShippingScreen() {
   return (
     <div>
         <Header></Header>
-      <main className="py-3">
+      <main className="py-3 mt-9">
         <Container>
           <FormContainer>
             <CheckoutSteps step1 step2 />

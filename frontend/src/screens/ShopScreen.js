@@ -7,17 +7,21 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SearchBox from "../components/SearchBox";
 
 import "../assets/css/bootstrap.min.css";
+import {useSearchParams} from 'react-router-dom'
+
 
 function ShopScreen() {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { error, loading, products } = productList;
-
+  const [searchParams, setSearchParams] = useSearchParams();
+  const keyword = searchParams.get("keyword");
   useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
+    dispatch(listProducts(keyword));
+  }, [dispatch,keyword]);
 
   return (
     <div>
@@ -26,7 +30,10 @@ function ShopScreen() {
         <h2>#Stayhome</h2>s
         <p>Save more with coupons & upto 70% off!</p>
       </section>
-
+      <Container fluid className="mt-4">
+      <SearchBox></SearchBox>
+      </Container>
+              
       <div>
         {loading ? (
           <Loader />

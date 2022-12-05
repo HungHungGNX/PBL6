@@ -66,15 +66,6 @@ const ContactScreen = () => {
 
         <div className="people">
           <div>
-            <img src="img/people/1.png" alt=""></img>
-            <p>
-              <span>John Doe</span>
-              Senior Marketing Manager<br></br>
-              Phone: +000 123 000 77 88<br></br>
-              Email: contact@xample.com
-            </p>
-          </div>
-          <div>
             {" "}
             <img src="img/people/1.png" alt=""></img>
             <p>
@@ -85,25 +76,6 @@ const ContactScreen = () => {
             </p>
           </div>
           <div>
-            <img src="img/people/1.png" alt=""></img>
-            <p>
-              <span>John Doe</span>
-              Senior Marketing Manager<br></br>
-              Phone: +000 123 000 77 88<br></br>
-              Email: contact@xample.com
-            </p>
-          </div>
-          <div>
-            <img src="img/people/1.png" alt=""></img>
-            <p>
-              <span>John Doe</span>
-              Senior Marketing Manager<br></br>
-              Phone: +000 123 000 77 88<br></br>
-              Email: contact@xample.com
-            </p>
-          </div>
-          <div>
-            {" "}
             <img src="img/people/1.png" alt=""></img>
             <p>
               <span>John Doe</span>

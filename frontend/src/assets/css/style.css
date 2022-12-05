@@ -118,7 +118,7 @@ body {
   background: #088178;
   position: absolute;
   bottom: -4px;
-  left: 20px;
+  left: 40px;
 }
 /* =========================Hero 2========= */
 #hero {
@@ -886,3 +886,51 @@ a:hover {
   text-transform: none !important;
   letter-spacing: normal !important;
 }
+
+
+.mt-9 {
+  margin-top:6rem !important;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #0d0d0d;
+    text-decoration: none;
+    background-color: #E3E6F3 !important;
+}
+
+
+.highlight {
+  -webkit-text-fill-color: transparent !important;
+  background: -webkit-linear-gradient(45deg,#5ebbff -33%,#a174ff 69%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+.custom-file-input-v::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input-v::before {
+  content: 'Select some files';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-size: 10pt;
+  color:black !important;
+}
+.custom-file-input-v{
+  color: #fff;
+}
+.custom-file-input-v:hover::before {
+  border-color: black;
+}
+.custom-file-input-v:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+

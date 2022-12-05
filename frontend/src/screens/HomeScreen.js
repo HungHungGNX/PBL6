@@ -73,7 +73,7 @@ function HomeScreen() {
         <h2>Feature Product</h2>
         <p>Summer collection New Mordern Design</p>
         <div className="pro-container">
-          {products.slice(0, 4).map((product) => (
+          {products.slice(0, 8).map((product) => (
             <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
               <Product product={product} />
             </Col>

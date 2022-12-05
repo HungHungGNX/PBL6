@@ -102,13 +102,14 @@ function OrderScreen({ match }) {
   ) : (
     <div>
       <Header></Header>
-      <main className="py-3">
+      <main className="py-3 mt-9">
         <Container>
           <h1
             style={{
               textAlign: "center",
               borderBottom: "8px solid cornflowerblue",
             }}
+             className = 'highlight'
           >
             Order
           </h1>
@@ -129,10 +130,9 @@ function OrderScreen({ match }) {
                     </p>
                     <p>
                       <strong>Shipping: </strong>
-                      {order.shippingAddress.address},{" "}
+                      {order.shippingAddress.address},
                       {order.shippingAddress.city}
-                      {"  "}
-                      {order.shippingAddress.postalCode},{"  "}
+                      {order.shippingAddress.postalCode},
                       {order.shippingAddress.country}
                     </p>
 

@@ -73,7 +73,7 @@ function ProfileScreen() {
   return (
 <div>
 <Header></Header>
-    <main className="py-3">
+    <main className="py-3 mt-9">
       <Container>
       <Row>
         <Col md={3}>
