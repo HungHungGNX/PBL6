@@ -1,24 +1,44 @@
 import React, { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function SearchBox() {
+  const [keyword, setKeyword] = useState("");
+
+  let navigate = useNavigate();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (keyword) {
+      navigate(`/shop/?keyword=${keyword}`);
+    } else {
+      navigate(`/shop`);
+    }
+  };
   return (
-    <Form inline>
-      <Row>
-        <Col>
-          {" "}
-          <Form.Control
-            type="text"
-            name="q"
-            className="mr-sm-2 ml-sm-5"
-          ></Form.Control>
-        </Col>
-        <Col>
-          {" "}
-          <Button type="submit" variant="outline-success" className="p-2 mx-5">
-            Submit
-          </Button>
+    <Form onSubmit={submitHandler} inline classsName="mt-9">
+      <Row className="justify-content-md-left" style={{justifyContent: 'flex-end'}}>
+        <Col md={5} className="ml-4"></Col>
+        <Col md={5}>
+          <Row style={{justifyContent: 'flex-end'}}>
+            <Col md={5}>
+              <Form.Control
+                type="text"
+                name="q"
+                onChange={(e) => setKeyword(e.target.value)}
+                className="mr-sm-2 ml-sm-5 rounded-pill"
+              ></Form.Control>
+            </Col>
+            <Col md={5} className="ml-4">
+              <Button
+                type="submit"
+                variant="outline-success"
+                className="p-2 rounded-pill fluid"
+              >
+                Search
+              </Button>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Form>

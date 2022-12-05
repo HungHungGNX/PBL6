@@ -1,7 +1,7 @@
 import { useState, useEffect, React } from "react";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
-import { Form, Button, Row, Col, Table } from "react-bootstrap";
+import { Form, Button, Row, Col, Table,Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -10,6 +10,7 @@ import FormContainer from "../components/FormContainer";
 import { useNavigate } from "react-router-dom";
 import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 import { listMyOrders } from "../actions/orderActions";
+import Header from "../components/Header";
 
 function ProfileScreen() {
   const [name, setName] = useState("");
@@ -70,7 +71,10 @@ function ProfileScreen() {
   console.log(orders)
 
   return (
-    <div>
+<div>
+<Header></Header>
+    <main className="py-3 mt-9">
+      <Container>
       <Row>
         <Col md={3}>
           <h2>User Profile</h2>
@@ -181,7 +185,9 @@ function ProfileScreen() {
           )}
         </Col>
       </Row>
-    </div>
+      </Container>
+    </main>
+</div>
   );
 }
 

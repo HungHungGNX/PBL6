@@ -1,6 +1,6 @@
 import { useState, useEffect, React } from "react";
 import { Link } from "react-router-dom";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Row, Col, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -36,102 +36,104 @@ function RegisterScreen() {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if(password != confirmPassword) {
-        setMessage('Passwords do not match');
-    }else {
-        dispatch(register(name, email, password));
+    if (password != confirmPassword) {
+      setMessage("Passwords do not match");
+    } else {
+      dispatch(register(name, email, password));
     }
   };
 
   return (
-    <FormContainer>
-      <Row className="justify-content-md-center">
-      <Col md={5}>
-          <img
-            src="https://images.pexels.com/photos/1075776/pexels-photo-1075776.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt="Login image"
-            className="w-100"
-            style={{ objectFit: "cover", objectPosition: "left" }}
-          />
-        </Col>
-        <Col md={5}>
-          <h1 style={{ textAlign: "center" }}>Sign Up</h1>
-          {message && <Message variant="danger">{message}</Message>}
-          {error && <Message variant="danger">{error}</Message>}
-          {loading && <Loader />}
-          <Form onSubmit={submitHandler}>
+    <main className="py-3 mt-5">
+      <Container>
+        <FormContainer>
+          <Row className="justify-content-md-center">
+            <Col md={5}>
+              <img
+                src="https://images.pexels.com/photos/1075776/pexels-photo-1075776.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Login image"
+                className="w-100"
+                style={{ objectFit: "cover", objectPosition: "left" }}
+              />
+            </Col>
+            <Col md={5}>
+              <h1 style={{ textAlign: "center" }}>Sign Up</h1>
+              {message && <Message variant="danger">{message}</Message>}
+              {error && <Message variant="danger">{error}</Message>}
+              {loading && <Loader />}
+              <Form onSubmit={submitHandler}>
+                <Form.Group controlId="name">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    required
+                    type="name"
+                    placeholder="Enter name"
+                    value={name}
+                    className="rounded-pill mt-1"
+                    onChange={(e) => setName(e.target.value)}
+                  ></Form.Control>
+                </Form.Group>
 
-          <Form.Group controlId="name">
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                required
-                type="name"
-                placeholder="Enter name"
-                value={name}
-                className="rounded-pill mt-1"
-                onChange={(e) => setName(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
+                <Form.Group controlId="email">
+                  <Form.Label className="mt-3">Email Address</Form.Label>
+                  <Form.Control
+                    required
+                    type="email"
+                    placeholder="Enter Email"
+                    value={email}
+                    className="rounded-pill mt-1"
+                    onChange={(e) => setEmail(e.target.value)}
+                  ></Form.Control>
+                </Form.Group>
 
-            <Form.Group controlId="email">
-              <Form.Label className="mt-3">Email Address</Form.Label>
-              <Form.Control
-                required
-                type="email"
-                placeholder="Enter Email"
-                value={email}
-                className="rounded-pill mt-1"
-                onChange={(e) => setEmail(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
+                <Form.Group controlId="password">
+                  <Form.Label className="mt-3">Password</Form.Label>
+                  <Form.Control
+                    required
+                    type="password"
+                    placeholder="Enter Password"
+                    value={password}
+                    className="rounded-pill mt-1"
+                    onChange={(e) => setPassword(e.target.value)}
+                  ></Form.Control>
+                </Form.Group>
 
-            <Form.Group controlId="password">
-              <Form.Label className="mt-3">Password</Form.Label>
-              <Form.Control
-                required
-                type="password"
-                placeholder="Enter Password"
-                value={password}
-                className="rounded-pill mt-1"
-                onChange={(e) => setPassword(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
+                <Form.Group controlId="passwordConfirm">
+                  <Form.Label className="mt-3">Confirm password</Form.Label>
+                  <Form.Control
+                    required
+                    type="password"
+                    placeholder="Confirm Password"
+                    value={confirmPassword}
+                    className="rounded-pill mt-1"
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  ></Form.Control>
+                </Form.Group>
 
-            <Form.Group controlId="passwordConfirm">
-              <Form.Label className="mt-3">Confirm password</Form.Label>
-              <Form.Control
-                required
-                type="password"
-                placeholder="Confirm Password"
-                value={confirmPassword}
-                className="rounded-pill mt-1"
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
+                <Button
+                  type="submit"
+                  variant="primary"
+                  className="mt-4 rounded-pill w-100 btn-sign-in"
+                >
+                  Register
+                </Button>
+              </Form>
 
-            <Button
-              type="submit"
-              variant="primary"
-              className="mt-4 rounded-pill w-100 btn-sign-in">
-                Register
-            </Button>
-
-          </Form>
-
-          <Row className="py-3">
-            <Col>
-              Have an Account?
-              <Link
-                to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-               <span> </span> Sign In
-              </Link>
+              <Row className="py-3">
+                <Col>
+                  Have an Account?
+                  <Link
+                    to={redirect ? `/login?redirect=${redirect}` : "/login"}
+                  >
+                    <span> </span> Sign In
+                  </Link>
+                </Col>
+              </Row>
             </Col>
           </Row>
-
-        </Col>
-
-      </Row>
-    </FormContainer>
+        </FormContainer>
+      </Container>
+    </main>
   );
 }
 
