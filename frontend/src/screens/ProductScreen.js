@@ -21,6 +21,7 @@ import {
 } from "../actions/productActions";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function ProductScreen({ match }) {
   const { id } = useParams();
@@ -46,26 +47,26 @@ function ProductScreen({ match }) {
 
   useEffect(() => {
     if (successProductReview) {
-      setRating(0)
-      setComment('')
-      dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
-   }
+      setRating(0);
+      setComment("");
+      dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
+    }
     dispatch(listProductDetails(id));
-  }, [dispatch, match,successProductReview]);
+  }, [dispatch, match, successProductReview]);
 
   const addToCartHandler = () => {
     navigate(`/cart/${id}?qty=${qty}`);
   };
 
   const submitHandler = (e) => {
-    e.preventDefault()
-    dispatch(createProductReview(
-        id, {
+    e.preventDefault();
+    dispatch(
+      createProductReview(id, {
         rating,
-        comment
-    }
-    ))
-}
+        comment,
+      })
+    );
+  };
 
   return (
     <div>
@@ -150,7 +151,7 @@ function ProductScreen({ match }) {
                         <Button
                           onClick={addToCartHandler}
                           className="btn-block rounded-pill btn-add-cart"
-                          disabled={product.countInStock == 0}
+                          disabled={product.countInStock === 0}
                           type="button"
                         >
                           Add to Cart
@@ -220,7 +221,8 @@ function ProductScreen({ match }) {
                             disabled={loadingProductReview}
                             type="submit"
                             className="my-3"
-                            variant="primary">
+                            variant="primary"
+                          >
                             Submit
                           </Button>
                         </Form>
@@ -238,6 +240,7 @@ function ProductScreen({ match }) {
           )}
         </Container>
       </main>
+      <Footer />
     </div>
   );
 }

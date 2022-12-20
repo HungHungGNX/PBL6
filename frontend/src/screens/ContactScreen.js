@@ -13,16 +13,16 @@ const ContactScreen = () => {
       <section id="contact-details" className="section-p1">
         <div className="details">
           <span>GET IN TOUCH</span>
-          <h2>Visit one of our agency location or contact us today</h2>
+          <h2>Visit our agency location or contact us today</h2>
           <h3>Head Office</h3>
           <div>
             <li>
               <i className="fa-regular fa-map"></i>
-              <p>56 Glassford Street Glasgow 1UL New York</p>
+              <p>54 Nguyen Luong Bang, Lien Chieu, Da Nang</p>
             </li>
             <li>
               <i className="fa-regular fa-envelope"></i>
-              <p>contact@example.com</p>
+              <p>contact@gmail.com</p>
             </li>
             <li>
               <i className="fa-solid fa-phone"></i>
@@ -36,6 +36,7 @@ const ContactScreen = () => {
         </div>
         <div className="map">
           <iframe
+            title="headOfficeMap"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51491.492410697465!2d108.14103341960609!3d16.063229724758315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314218d68dff9545%3A0x714561e9f3a7292c!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBCw6FjaCBLaG9hIC0gxJDhuqFpIGjhu41jIMSQw6AgTuG6tW5n!5e0!3m2!1svi!2s!4v1668767739062!5m2!1svi!2s"
             width="600"
             height="450"
@@ -66,31 +67,49 @@ const ContactScreen = () => {
 
         <div className="people">
           <div>
+            <img src={require("../assets/img/people/avatar2.png")} alt=""></img>
+            <p>
+              <span>Hung Nguyen</span>
+              CREATIVE DIRECTOR<br></br>
+              Phone: +000 912 111<br></br>
+              Email: hungnguyenx@xample.com
+            </p>
+          </div>
+          <div>
             {" "}
-            <img src="img/people/1.png" alt=""></img>
+            <img src={require("../assets/img/people/avarta3.png")} alt=""></img>
             <p>
-              <span>John Doe</span>
-              Senior Marketing Manager<br></br>
-              Phone: +000 123 000 77 88<br></br>
-              Email: contact@xample.com
+              <span>Hien Tran</span>
+              EDITORIAL DIRECTOR<br></br>
+              Phone: +000 123 123<br></br>
+              Email: HienTran@xample.com
             </p>
           </div>
           <div>
-            <img src="img/people/1.png" alt=""></img>
+            <img src={require("../assets/img/people/avarta1.png")} alt=""></img>
             <p>
-              <span>John Doe</span>
-              Senior Marketing Manager<br></br>
-              Phone: +000 123 000 77 88<br></br>
-              Email: contact@xample.com
+              <span>Truong Nguyen</span>
+              COMMERCE DIRECTOR<br></br>
+              Phone: +000 123 000<br></br>
+              Email: TruongNguyen@xample.com
             </p>
           </div>
           <div>
-            <img src="img/people/1.png" alt=""></img>
+            <img src={require("../assets/img/people/avatar5.png")} alt=""></img>
             <p>
-              <span>John Doe</span>
-              Senior Marketing Manager<br></br>
-              Phone: +000 123 000 77 88<br></br>
-              Email: contact@xample.com
+              <span>Que Tung</span>
+              SENIOR FASHION EDITOR<br></br>
+              Phone: +000 123 111 <br></br>
+              Email: QueTung@xample.com
+            </p>
+          </div>
+          <div>
+            <img src={require("../assets/img/people/avarta4.png")} alt=""></img>
+            <p>
+              <span>Nghia Pham</span>
+              GENERAL MANAGER<br></br>
+              Phone: +000 123 456<br></br>
+              Email: phng01@xample.com
             </p>
           </div>
         </div>
