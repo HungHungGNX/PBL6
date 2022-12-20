@@ -22,6 +22,10 @@ import UserEditScreen from './screens/UserEditScreen';
 import ProductListScreen from './screens/ProductListScreen'
 import ProductEditScreen from './screens/ProductEditScreen'
 import OrderListScreen from './screens/OrderListScreen'
+import StatisticScreen from './screens/StatisticScreen'
+import StatisticScreenByDay from './screens/StatisticScreenByDay'
+import StatisticScreenByYear from './screens/StatisticScreenByYear'
+import PieChartScreen from './screens/PieChartScreen'
 
 function App() {
   return (
@@ -47,6 +51,11 @@ function App() {
         <Route path='/admin/productlist' element={<ProductListScreen />} />
         <Route path='/admin/product/:id/edit' element={<ProductEditScreen />} />
         <Route path='/admin/orderlist' element={<OrderListScreen />} />
+        <Route path='/admin/statistic' element={<StatisticScreen />} />
+        <Route path='/admin/statisticbymonth' element={<StatisticScreen />} />
+        <Route path='/admin/statisticbyday' element={<StatisticScreenByDay />} />
+        <Route path='/admin/statisticbyyear' element={<StatisticScreenByYear />} />
+        <Route path='/admin/piechart' element={<PieChartScreen />} />
       </Routes>
     </Router>
   );
