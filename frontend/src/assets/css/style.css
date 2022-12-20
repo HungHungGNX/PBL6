@@ -1034,3 +1034,12 @@ strong {
 #footer h4 {
   font-size: 1.25rem !important;
 }
+#contact-details .details li {
+  padding: 5px 0px;
+}
+#contact-details .details li p {
+  font-size: 15px;
+}
+#contact-details .details span {
+  font-size: 14px;
+}

@@ -6,10 +6,8 @@ import {
   Col,
   ListGroup,
   Image,
-  Form,
   Button,
   Card,
-  ListGroupItem,
   Container,
 } from "react-bootstrap";
 import Message from "../components/Message";
@@ -17,6 +15,7 @@ import { addToCart, removeFromCart } from "../actions/cartActions";
 import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function CartScreen({ match }) {
   const { id } = useParams();
@@ -142,6 +141,7 @@ function CartScreen({ match }) {
           </Row>
         </Container>
       </main>
+      <Footer />
     </div>
   );
 }
