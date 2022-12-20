@@ -28,16 +28,15 @@ const Footer = () => {
           <h4>Contact</h4>
           <p>
             {" "}
-            <strong>Address:</strong> 562 Wellington Road, Street 32, San
-            Francisco
+            <strong>Address:</strong> 54 Nguyen Luong bang, Da Nang
           </p>
           <p>
             {" "}
-            <strong>Phone:</strong> +090312312
+            <strong>Phone: </strong> 0999.999.999
           </p>
           <p>
             {" "}
-            <strong>Hours</strong>10:00-18:00, Mon-Sat
+            <strong>Hours: </strong>9.00am to 16.pm, Mon-Sat
           </p>
           <div className="follow">
             <h4>Follow us</h4>
@@ -51,20 +50,20 @@ const Footer = () => {
         </div>
         <div className="col">
           <h4>About</h4>
-          <a href="#">About Us</a>
-          <a href="#">Delivery Information </a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Term & Conditions</a>
-          <a href="#">Contact us</a>
+          <a href="/#">About Us</a>
+          <a href="/#">Delivery Information </a>
+          <a href="/#">Privacy Policy</a>
+          <a href="/#">Term & Conditions</a>
+          <a href="/#">Contact us</a>
         </div>
 
         <div className="col">
           <h4>My Account</h4>
-          <a href="#">Sign In</a>
-          <a href="#">View Cart</a>
-          <a href="#">My Wishlist</a>
-          <a href="#">Track My order</a>
-          <a href="#">Help</a>
+          <a href="/#">Sign In</a>
+          <a href="/#">View Cart</a>
+          <a href="/#">My Wishlist</a>
+          <a href="/#">Track My order</a>
+          <a href="/#">Help</a>
         </div>
 
         <div className="col install">

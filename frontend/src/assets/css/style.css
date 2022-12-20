@@ -450,6 +450,7 @@ body {
 }
 #footer .copyright {
   display: inline-block;
+  margin-bottom: 0px;
 }
 
 #footer .logo {
@@ -887,21 +888,24 @@ a:hover {
   letter-spacing: normal !important;
 }
 
-
 .mt-9 {
-  margin-top:6rem !important;
+  margin-top: 6rem !important;
 }
 
-.dropdown-item:focus, .dropdown-item:hover {
-    color: #0d0d0d;
-    text-decoration: none;
-    background-color: #E3E6F3 !important;
+.dropdown-item:focus,
+.dropdown-item:hover {
+  color: #0d0d0d;
+  text-decoration: none;
+  background-color: #e3e6f3 !important;
 }
-
 
 .highlight {
   -webkit-text-fill-color: transparent !important;
-  background: -webkit-linear-gradient(45deg,#5ebbff -33%,#a174ff 69%) !important;
+  background: -webkit-linear-gradient(
+    45deg,
+    #5ebbff -33%,
+    #a174ff 69%
+  ) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
 }
@@ -910,7 +914,7 @@ a:hover {
   visibility: hidden;
 }
 .custom-file-input-v::before {
-  content: 'Select some files';
+  content: "Select some files";
   display: inline-block;
   background: linear-gradient(top, #f9f9f9, #e3e3e3);
   border: 1px solid #999;
@@ -922,9 +926,9 @@ a:hover {
   cursor: pointer;
   text-shadow: 1px 1px #fff;
   font-size: 10pt;
-  color:black !important;
+  color: black !important;
 }
-.custom-file-input-v{
+.custom-file-input-v {
   color: #fff;
 }
 .custom-file-input-v:hover::before {
@@ -934,7 +938,6 @@ a:hover {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
 
-
 .btn5-hover {
   width: 120px;
   font-size: 16px;
@@ -943,22 +946,22 @@ a:hover {
   cursor: pointer;
   margin: 20px;
   height: 40px;
-  text-align:center;
+  text-align: center;
   border: none;
   background-size: 300% 100%;
   border-radius: 50px;
-  moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn5-hover:hover {
   background-position: 100% 0;
-  moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn5-hover:focus {
@@ -966,19 +969,68 @@ a:hover {
 }
 
 .btn5-hover.btn5 {
-    background-image: linear-gradient(
-      to right,
-      #25aae1,
-      #4481eb,
-      #04befe,
-      #3f86ed
-    );
-    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
-  }
+  background-image: linear-gradient(
+    to right,
+    #25aae1,
+    #4481eb,
+    #04befe,
+    #3f86ed
+  );
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
 
-  .input-month{
-    outline: none;
-    border: none;
-    border-bottom: 4px solid #6ad9e3;
-    text-align: center;
-  }
+.input-month {
+  outline: none;
+  border: none;
+  border-bottom: 4px solid #6ad9e3;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+#footer .install img {
+  margin: 10px 5px 15px 0;
+}
+#footer h4 {
+  padding-bottom: 3px;
+}
+
+#hero > h2 {
+  font-size: 46px;
+}
+#hero > h1 {
+  font-size: 50px;
+}
+#hero > h4,
+#hero > h1,
+#hero > h2 {
+  margin-bottom: -0.5rem;
+}
+strong {
+  font-weight: bold !important;
+}
+.widthlength {
+  padding: 38px 100px;
+}
+#footer a {
+  font-size: 14px;
+  color: #222;
+}
+#footer a:hover {
+  font-size: 14px;
+  color: #088178;
+}
+#footer p {
+  font-size: 14px;
+}
+#footer h4 {
+  font-size: 1.25rem !important;
+}
