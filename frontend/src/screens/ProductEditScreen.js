@@ -154,7 +154,7 @@ function ProductEditScreen({}) {
                     type="file"
                     id="image-file"
                     className="custom-file-input-v mt-3"
-                    accept="image/png, image/jpeg"
+                   //accept="image/png, image/jpeg"
                     onChange={uploadFileHandler}
                   ></input>
                   {uploading && <Loader />}
