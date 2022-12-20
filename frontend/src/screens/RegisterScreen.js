@@ -95,7 +95,7 @@ function RegisterScreen() {
                 <i className="fas fa-lock"></i>
               </div>
               <div>
-                <h5>password</h5>
+                <h5>Password</h5>
                 <input
                   className="lginput"
                   type="password"

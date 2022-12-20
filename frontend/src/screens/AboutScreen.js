@@ -8,7 +8,7 @@ const AboutScreen = () => {
       <Header />
       <section id="page-header" className="about-header">
         <h2>#KnowUs</h2>
-        <p>Read All cáe studies our products</p>
+        <p>Information about us</p>
       </section>
 
       <section id="about-head" className="section-p1">
@@ -16,27 +16,30 @@ const AboutScreen = () => {
         <div>
           <h2 className="who-we-are">Who We Are?</h2>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla
-            quibusdam veniam eos rem provident possimus mollitia ullam, officia
-            earum aliquid nesciunt sed, commodi et distinctio ea vitae, minus
-            dignissimos nemo?
+            We develop our own brands, treating each as an independent label
+            with its own creative team and aesthetic. As a group, they have a
+            few things in common: an effortless appeal, a focus on fit and an
+            of-the-moment point of view. We sweat the small stuff. It's why we
+            search out the best mills and factories around the world. It's why
+            we consider (and reconsider) every last seam, pleat and button. It's
+            why our clothes look and feel so good.
           </p>
           <abbr title="">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae eius
-            aspernatur nihil consequatur qui saepe{" "}
+            We seek to create an inclusive world of self-expression where
+            fashion takes off.{" "}
           </abbr>
           <br></br>
           <br></br>
           <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae eius
-            aspernatur nihil consequatur qui saepe
+            we seek to create an inclusive world of self-expression where
+            fashion takes off.
           </marquee>
         </div>
       </section>
 
       <section id="about-app" className="section-p1">
         <h1>
-          Download Our <a href="">App</a>{" "}
+          Download Our <a href="/#">App</a>{" "}
         </h1>
         <div className="video">
           <video
@@ -48,7 +51,7 @@ const AboutScreen = () => {
         </div>
       </section>
 
-      <section id="feature" className="section-p1">
+      <section id="feature" className="section-p1 widthlength">
         <div className="fe-box">
           <img src={require("../assets/img/features/f1.png")} alt=""></img>
           <h6>Free Shipping</h6>
