@@ -9,7 +9,7 @@ const BlogScreen = () => {
 
       <section id="page-header" className="blog-header">
         <h2>#ReadMore</h2>
-        <p>Read All cáe studies our products</p>
+        <p>Read All case studies our products</p>
       </section>
       <section id="blog">
         <div className="blog-box">

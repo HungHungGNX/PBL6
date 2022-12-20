@@ -5,23 +5,23 @@ import Header from "../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col, Container } from "react-bootstrap";
 import Product from "../components/Product";
-import { redirect } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { listProducts } from "../actions/productActions";
+import ScrollToTop from "react-scroll-to-top";
 
 function HomeScreen() {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { error, loading, products } = productList;
-  const userLogin = useSelector(state => state.userLogin)
-  const { userInfo } = userLogin
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
   const navigate = useNavigate();
   const redirectShop = () => {
     navigate("/shop");
   };
   useEffect(() => {
-    if(userInfo && userInfo.isAdmin){
-      navigate("/admin/userlist")
+    if (userInfo && userInfo.isAdmin) {
+      navigate("/admin/userlist");
     }
     dispatch(listProducts());
   }, [dispatch]);
@@ -29,7 +29,7 @@ function HomeScreen() {
     <div>
       <Header />
       <section id="hero">
-        <h4>Trade in offer</h4>
+        <h4>Trade-in-offer</h4>
         <h2>Super value deals</h2>
 
         <h1>On all products</h1>
@@ -39,7 +39,7 @@ function HomeScreen() {
         <button onClick={redirectShop}>Shop now</button>
       </section>
 
-      <section id="feature" className="section-p1">
+      <section id="feature" className="section-p1 widthlength">
         <div className="fe-box">
           <img src={require("../assets/img/features/f1.png")} alt=""></img>
           <h6>Free Shipping</h6>
@@ -74,9 +74,9 @@ function HomeScreen() {
         <button className="normal">Explore More</button>
       </section>
 
-      <section id="product1" className="section-p1">
+      <section id="product1" className="section-p1 widthlength">
         <h2>Feature Product</h2>
-        <p>Summer collection New Mordern Design</p>
+        <p>Our New Mordern Design</p>
         <div className="pro-container">
           {products.slice(0, 8).map((product) => (
             <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
@@ -116,6 +116,7 @@ function HomeScreen() {
         </div>
       </section>
       <Footer />
+      <ScrollToTop smooth />
     </div>
   );
 }
