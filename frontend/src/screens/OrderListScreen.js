@@ -8,7 +8,7 @@ import { listOrders } from '../actions/orderActions'
 import {useNavigate} from 'react-router-dom'
 import Header from '../components/Header'
 
-function OrderListScreen({ }) {
+function OrderListScreen() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -29,6 +29,17 @@ function OrderListScreen({ }) {
         }
 
     }, [dispatch, navigate, userInfo])
+
+    const handleDateTime = (str) => {
+            const arr = str.split('T')
+            let objectDate = new Date(arr[0]);
+            let day = objectDate.getDate();
+            let month = objectDate.getMonth();
+            let year = objectDate.getFullYear();
+            arr[0] = day + "/" + month + "/" + year;
+            arr[1] = arr[1].substring(0,8);
+            return arr.join(' ')
+    }
 
 
     return (
@@ -58,18 +69,18 @@ function OrderListScreen({ }) {
                                     <tr key={order._id}>
                                         <td>{order._id}</td>
                                         <td>{order.user && order.user.name}</td>
-                                        <td>{order.createAt.substring(0, 10)}</td>
+                                        <td>{handleDateTime(order.createAt)}</td>
                                         <td>${order.totalPrice}</td>
 
                                         <td>{order.isPaid ? (
-                                            order.paidAt
+                                            handleDateTime(order.paidAt)
                                         ) : (
                                                 <i className='fas fa-check' style={{ color: 'red' }}></i>
                                             )}
                                         </td>
 
                                         <td>{order.isDelivered ? (
-                                            order.deliveredAt
+                                            handleDateTime(order.deliveredAt)
                                         ) : (
                                                 <i className='fas fa-check' style={{ color: 'red' }}></i>
                                             )}

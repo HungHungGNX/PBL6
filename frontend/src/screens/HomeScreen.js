@@ -13,11 +13,16 @@ function HomeScreen() {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { error, loading, products } = productList;
+  const userLogin = useSelector(state => state.userLogin)
+  const { userInfo } = userLogin
   const navigate = useNavigate();
   const redirectShop = () => {
     navigate("/shop");
   };
   useEffect(() => {
+    if(userInfo && userInfo.isAdmin){
+      navigate("/admin/userlist")
+    }
     dispatch(listProducts());
   }, [dispatch]);
   return (

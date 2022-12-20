@@ -22,6 +22,49 @@ function Header() {
           <img src="img/logo.png" class="logo" alt=""></img>
         </a>
         <div>
+        {userInfo && userInfo.isAdmin ?
+          <ul id="navbar">
+          <li>
+              <LinkContainer to="/admin/userlist">
+                <NavDropdown.Item>Users</NavDropdown.Item>
+              </LinkContainer>
+            </li>
+            <li>
+              <LinkContainer to="/admin/productlist">
+                <NavDropdown.Item>Products</NavDropdown.Item>
+              </LinkContainer>
+            </li>
+            <li>
+              <LinkContainer to="/admin/orderlist">
+                <NavDropdown.Item>Orders</NavDropdown.Item>
+              </LinkContainer>
+            </li>
+
+            <li>
+              <LinkContainer to="/admin/piechart">
+                <NavDropdown.Item>Chart</NavDropdown.Item>
+              </LinkContainer>
+            </li>
+
+              <NavDropdown title="Statistic" style={{color: 'black'}}>
+                <LinkContainer to="/admin/statisticbyday">
+                  <NavDropdown.Item>Statistic By Day</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/admin/statistic">
+                  <NavDropdown.Item>Statistic By Month</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/admin/statisticbyyear">
+                  <NavDropdown.Item>Statistic By Year</NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
+      
+            <NavDropdown title={userInfo.name} id="username">
+                <NavDropdown.Item onClick={logoutHandler}>
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+          </ul>
+         :
           <ul id="navbar">
             <li>
               <LinkContainer to="/">
@@ -73,22 +116,8 @@ function Header() {
                 </LinkContainer>
               </li>
             )}
-            {userInfo && userInfo.isAdmin && (
-                                <NavDropdown title='💎' id='adminmenue'>
-                                    <LinkContainer to='/admin/userlist'>
-                                        <NavDropdown.Item>Users</NavDropdown.Item>
-                                    </LinkContainer>
-
-                                    <LinkContainer to='/admin/productlist'>
-                                        <NavDropdown.Item>Products</NavDropdown.Item>
-                                    </LinkContainer>
-
-                                    <LinkContainer to='/admin/orderlist'>
-                                        <NavDropdown.Item>Orders</NavDropdown.Item>
-                                    </LinkContainer>
-                                </NavDropdown>
-                            )}
           </ul>
+        }
         </div>
       </section>
     </div>
