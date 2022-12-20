@@ -1,34 +1,41 @@
 import { useState, useEffect, React } from "react";
 import { Link } from "react-router-dom";
-import { Form, Button, Row, Col ,Container} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { login } from "../actions/userActions";
-import FormContainer from "../components/FormContainer";
 import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
-
+import "../assets/css/loginstyle.css";
 function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-
   const dispatch = useDispatch();
-
   const redirect = searchParams.get("redirect")
     ? searchParams.get("redirect").split("=")[1]
     : "/";
-
   const userLogin = useSelector((state) => state.userLogin);
   const { error, loading, userInfo } = userLogin;
-
   useEffect(() => {
     if (userInfo) {
       navigate(redirect);
     }
   }, [navigate, userInfo, redirect]);
+
+  useEffect(() => {
+    const inputs = document.querySelectorAll(".lginput");
+
+    function focusFunx() {
+      let parent = this.parentNode.parentNode;
+      parent.classList.add("focus");
+    }
+
+    inputs.forEach((input) => {
+      input.addEventListener("focus", focusFunx);
+    });
+  });
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -36,68 +43,54 @@ function LoginScreen() {
   };
 
   return (
-    <main className="py-3 mt-5">
-    <Container>
-    <FormContainer>
-      <Row className="justify-content-md-center">
-        <Col md={5}>
-          <h1 style={{ textAlign: "center" }}>Sign In</h1>
-          {error && <Message variant="danger">{error}</Message>}
-          {loading && <Loader />}
-          <Form onSubmit={submitHandler}>
-            <Form.Group controlId="email">
-              <Form.Label>Email Address</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter Email"
-                value={email}
-                className="rounded-pill mt-3"
-                onChange={(e) => setEmail(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
+    <div className="prcontainer">
+      <div className="lgcontainer">
+        <div className="login-img">
+          <img src={require("../assets/img/fas.png")} alt="" />
+        </div>
+        <div className="login-container">
+          <form className="loginform" onSubmit={submitHandler}>
+            <h2 className="signInTitle">Sign in</h2>
+            {error && <Message variant="danger">{error}</Message>}
+            {loading && <Loader />}
+            <div className="inputSignin-div" one>
+              <div className="i">
+                <i className="fa fa-envelope"></i>
+              </div>
 
-            <Form.Group controlId="password">
-              <Form.Label className="mt-3">Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Enter Password"
-                value={password}
-                className="rounded-pill mt-3"
-                onChange={(e) => setPassword(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
+              <div>
+                <h5>Email</h5>
+                <input
+                  className="lginput"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="inputSignin-div" two>
+              <div className="i">
+                <i className="fas fa-lock"></i>
+              </div>
+              <div>
+                <h5>password</h5>
+                <input
+                  className="lginput"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+            </div>
 
-            <Button
-              type="submit"
-              variant="primary"
-              className="mt-4 rounded-pill w-100 btn-sign-in">
-              Sign In
-            </Button>
-          </Form>
-
-          <Row className="py-3">
-            <Col>
-              New Customer?
-              <Link
-                to={redirect ? `/register?redirect=${redirect}` : "/register"}>
-               <span> </span> Register
-              </Link>
-            </Col>
-          </Row>
-        </Col>
-
-        <Col md={5}>
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img3.webp"
-            alt="Login image"
-            className="w-100"
-            style={{ objectFit: "cover", objectPosition: "left" }}
-          />
-        </Col>
-      </Row>
-    </FormContainer>
-    </Container></main>
+            <a href="/register" className="linkregister">
+              Register new customer
+            </a>
+            <input type="submit" className="btnLg" value="Login" />
+          </form>
+        </div>
+      </div>
+    </div>
   );
 }
-
 export default LoginScreen;

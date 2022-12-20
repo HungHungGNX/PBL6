@@ -18,14 +18,16 @@ import BlogScreen from "./screens/BlogScreen";
 import AboutScreen from "./screens/AboutScreen";
 import ContactScreen from "./screens/ContactScreen";
 import UserListScreen from "./screens/UserListScreen";
-import UserEditScreen from './screens/UserEditScreen';
-import ProductListScreen from './screens/ProductListScreen'
-import ProductEditScreen from './screens/ProductEditScreen'
-import OrderListScreen from './screens/OrderListScreen'
-import StatisticScreen from './screens/StatisticScreen'
-import StatisticScreenByDay from './screens/StatisticScreenByDay'
-import StatisticScreenByYear from './screens/StatisticScreenByYear'
-import PieChartScreen from './screens/PieChartScreen'
+import UserEditScreen from "./screens/UserEditScreen";
+import ProductListScreen from "./screens/ProductListScreen";
+import ProductEditScreen from "./screens/ProductEditScreen";
+import OrderListScreen from "./screens/OrderListScreen";
+import StatisticScreen from "./screens/StatisticScreen";
+import StatisticScreenByDay from "./screens/StatisticScreenByDay";
+import StatisticScreenByYear from "./screens/StatisticScreenByYear";
+import PieChartScreen from "./screens/PieChartScreen";
+// import LogintestScreen from "./screens/LoginScreentest";
+// import RegistertestScreen from "./screens/RegisterScreentest";
 
 function App() {
   return (
@@ -47,15 +49,21 @@ function App() {
         <Route path="/about" element={<AboutScreen />} />
         <Route path="/contact" element={<ContactScreen />} />
         <Route path="/admin/userlist" element={<UserListScreen />} />
-        <Route path='/admin/user/:id/edit' element={<UserEditScreen />} />
-        <Route path='/admin/productlist' element={<ProductListScreen />} />
-        <Route path='/admin/product/:id/edit' element={<ProductEditScreen />} />
-        <Route path='/admin/orderlist' element={<OrderListScreen />} />
-        <Route path='/admin/statistic' element={<StatisticScreen />} />
-        <Route path='/admin/statisticbymonth' element={<StatisticScreen />} />
-        <Route path='/admin/statisticbyday' element={<StatisticScreenByDay />} />
-        <Route path='/admin/statisticbyyear' element={<StatisticScreenByYear />} />
-        <Route path='/admin/piechart' element={<PieChartScreen />} />
+        <Route path="/admin/user/:id/edit" element={<UserEditScreen />} />
+        <Route path="/admin/productlist" element={<ProductListScreen />} />
+        <Route path="/admin/product/:id/edit" element={<ProductEditScreen />} />
+        <Route path="/admin/orderlist" element={<OrderListScreen />} />
+        <Route path="/admin/statistic" element={<StatisticScreen />} />
+        <Route path="/admin/statisticbymonth" element={<StatisticScreen />} />
+        <Route
+          path="/admin/statisticbyday"
+          element={<StatisticScreenByDay />}
+        />
+        <Route
+          path="/admin/statisticbyyear"
+          element={<StatisticScreenByYear />}
+        />
+        <Route path="/admin/piechart" element={<PieChartScreen />} />
       </Routes>
     </Router>
   );

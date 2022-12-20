@@ -8,10 +8,10 @@ import Message from "../components/Message";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SearchBox from "../components/SearchBox";
+import ScrollToTop from "react-scroll-to-top";
 
 import "../assets/css/bootstrap.min.css";
-import {useSearchParams} from 'react-router-dom'
-
+import { useSearchParams } from "react-router-dom";
 
 function ShopScreen() {
   const dispatch = useDispatch();
@@ -21,19 +21,18 @@ function ShopScreen() {
   const keyword = searchParams.get("keyword");
   useEffect(() => {
     dispatch(listProducts(keyword));
-  }, [dispatch,keyword]);
+  }, [dispatch, keyword]);
 
   return (
     <div>
       <Header />
       <section id="page-header">
-        <h2>#Stayhome</h2>s
+        <h2>#Stayhome</h2>
         <p>Save more with coupons & upto 70% off!</p>
       </section>
       <Container fluid className="mt-4">
-      <SearchBox></SearchBox>
+        <SearchBox></SearchBox>
       </Container>
-              
       <div>
         {loading ? (
           <Loader />
@@ -41,7 +40,7 @@ function ShopScreen() {
           <Message variant="danger">{error}</Message>
         ) : (
           <Row>
-            <section id="product1" className="section-p1">
+            <section id="product1" className="section-p1 widthlength">
               <div className="pro-container">
                 {products.map((product) => (
                   <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
@@ -54,6 +53,7 @@ function ShopScreen() {
         )}
       </div>
       <Footer />
+      <ScrollToTop smooth />
     </div>
   );
 }
