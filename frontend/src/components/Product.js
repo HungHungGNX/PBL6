@@ -16,7 +16,7 @@ function Product({ product }) {
         <img src={product.image} alt=""></img>
       </Link>
       <div className="des">
-        <span>adidas</span>
+        <span>{product.brand}</span>
         <Link to={`/product/${product._id}`}>
           <h5>{product.name}</h5>
         </Link>

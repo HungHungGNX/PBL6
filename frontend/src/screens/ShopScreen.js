@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Product from "../components/Product";
@@ -16,6 +16,7 @@ import { useSearchParams } from "react-router-dom";
 function ShopScreen() {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
+  const [category,setCategory] = useState('');
   const { error, loading, products } = productList;
   const [searchParams, setSearchParams] = useSearchParams();
   const keyword = searchParams.get("keyword");
@@ -32,6 +33,17 @@ function ShopScreen() {
       </section>
       <Container fluid className="mt-4">
         <SearchBox></SearchBox>
+        <select className="input-month" style={{width:'180px',marginLeft:'130px',borderRadius:'10px'}} 
+        onChange = {(e)=>{setCategory(e.target.value)}}>
+                <option selected disabled>Categories</option>
+                <option value="Pant">Pant</option>
+                <option value="Shirt">Shirt</option>
+                <option value="Blazer">Blazer</option>
+                <option value="Dress">Dress</option>
+                <option value="Shoe">Shoe</option>
+                <option value="Jean">Jean</option>
+                <option value="ALL">All</option>
+       </select>
       </Container>
       <div>
         {loading ? (
@@ -42,11 +54,25 @@ function ShopScreen() {
           <Row>
             <section id="product1" className="section-p1 widthlength">
               <div className="pro-container">
-                {products.map((product) => (
-                  <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                {products.map((product) => {
+                  if(category === ''){
+                  return (<Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                     <Product product={product} />
-                  </Col>
-                ))}
+                  </Col>)
+                  } else if(category === 'ALL'){
+                  return (<Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                    <Product product={product} />
+                  </Col>)
+                }
+                else {
+                  if(product.category === category){
+                    return (<Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                    <Product product={product} />
+                  </Col>)
+                  }
+                }
+                })}
+               
               </div>
             </section>
           </Row>
