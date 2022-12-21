@@ -31,10 +31,7 @@ function HomeScreen() {
       <section id="hero">
         <h4>Trade-in-offer</h4>
         <h2>Super value deals</h2>
-
         <h1>On all products</h1>
-
-        <p>Save more with coupons & upto 70% off!</p>
 
         <button onClick={redirectShop}>Shop now</button>
       </section>
@@ -67,11 +64,13 @@ function HomeScreen() {
       </section>
 
       <section id="banner" className="section-m1">
-        <h4>Repair Services</h4>
+        <h4>Grand Opening </h4>
         <h2>
-          Up to <span>70% Off</span> - All t-shirt & Acessories
+          Up to <span>70% Off</span> - All Shirt & Blazer
         </h2>
-        <button className="normal">Explore More</button>
+        <button className="normal" onClick={redirectShop}>
+          Explore More
+        </button>
       </section>
 
       <section id="product1" className="section-p1 widthlength">
@@ -90,28 +89,32 @@ function HomeScreen() {
         <div className="banner-box">
           <h4>Crazy deal</h4>
           <h2>buy 1 get 1 free</h2>
-          <span>The beest classNameic dess is on sale at cara</span>
-          <button className="white">Learn More</button>
+          <span>The best classic dress is on sale </span>
+          <button className="white" onClick={redirectShop}>
+            Learn More
+          </button>
         </div>
         <div className="banner-box banner-box2">
-          <h4>Spring/summer</h4>
+          <h4>Winter/Spring</h4>
           <h2>Upcoming season</h2>
-          <span>The beest classNameic dess is on sale at cara</span>
-          <button className="white">Collection</button>
+          <span>The New trendy T-shirt upcoming</span>
+          <button className="white" onClick={redirectShop}>
+            Collection
+          </button>
         </div>
       </section>
 
       <section id="banner3">
         <div className="banner-box">
           <h2>SEASONAL SALE</h2>
-          <h3>Winter Collection - 50% OFF</h3>
+          <h3>Coming soon</h3>
         </div>
         <div className="banner-box banner-box2">
-          <h2>NEW FOOTWARE COLLECTION</h2>
-          <h3>Winter Collection - 50% OFF</h3>
+          <h2>NEW OUTERWARE COLLECTION</h2>
+          <h3>Coming soon</h3>
         </div>
         <div className="banner-box banner-box3">
-          <h2>T-SHIRT</h2>
+          <h2>DRESS</h2>
           <h3>New Trendy Prints</h3>
         </div>
       </section>

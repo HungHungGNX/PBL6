@@ -7,6 +7,7 @@ const AboutScreen = () => {
     <div>
       <Header />
       <section id="page-header" className="about-header">
+        <br />
         <h2>#KnowUs</h2>
         <p>Information about us</p>
       </section>
@@ -14,8 +15,13 @@ const AboutScreen = () => {
       <section id="about-head" className="section-p1">
         <img src={require("../assets/img/about/a6.jpg")} alt=""></img>
         <div>
-          <h2 className="who-we-are">Who We Are?</h2>
-          <p style={{fontFamily:'"Ubuntu", sans-serif'}}>
+          <h2
+            className="who-we-are"
+            style={{ fontFamily: '"Ubuntu", sans-serif', fontWeight: "700" }}
+          >
+            Who We Are?
+          </h2>
+          <p style={{ fontFamily: '"Ubuntu", sans-serif', fontWeight: "400" }}>
             We develop our own brands, treating each as an independent label
             with its own creative team and aesthetic. As a group, they have a
             few things in common: an effortless appeal, a focus on fit and an
@@ -24,16 +30,8 @@ const AboutScreen = () => {
             we consider (and reconsider) every last seam, pleat and button. It's
             why our clothes look and feel so good.
           </p>
-          <abbr title="" style={{fontFamily:'"Ubuntu", sans-serif'}}>
-            We seek to create an inclusive world of self-expression where
-            fashion takes off.{" "}
-          </abbr>
-          <br></br>
-          <br></br>
-          <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%" style={{fontFamily:'"Ubuntu", sans-serif'}}>
-            we seek to create an inclusive world of self-expression where
-            fashion takes off.
-          </marquee>
+          <br />
+          <br />
         </div>
       </section>
 
