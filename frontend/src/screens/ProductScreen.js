@@ -73,7 +73,11 @@ function ProductScreen({ match }) {
       <Header />
       <main className="py-3 mt-9">
         <Container>
-          <Link to="/" className="btn btn-light my-3">
+          <Link
+            to="/"
+            className="btn btn-light my-3 goback-btn"
+            style={{ color: "#f9f9f9", background: "#000" }}
+          >
             Go Back
           </Link>
           {loading ? (
