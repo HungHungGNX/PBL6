@@ -26,8 +26,8 @@ import StatisticScreen from "./screens/StatisticScreen";
 import StatisticScreenByDay from "./screens/StatisticScreenByDay";
 import StatisticScreenByYear from "./screens/StatisticScreenByYear";
 import PieChartScreen from "./screens/PieChartScreen";
-// import LogintestScreen from "./screens/LoginScreentest";
-// import RegistertestScreen from "./screens/RegisterScreentest";
+import BlogDetailScreen from "./screens/BlogDetailScreen";
+import BlogDetailBScreen from "./screens/BlogDetailBScreen";
 
 function App() {
   return (
@@ -55,15 +55,11 @@ function App() {
         <Route path="/admin/orderlist" element={<OrderListScreen />} />
         <Route path="/admin/statistic" element={<StatisticScreen />} />
         <Route path="/admin/statisticbymonth" element={<StatisticScreen />} />
-        <Route
-          path="/admin/statisticbyday"
-          element={<StatisticScreenByDay />}
-        />
-        <Route
-          path="/admin/statisticbyyear"
-          element={<StatisticScreenByYear />}
-        />
+        <Route path="/admin/statisticbyday" element={<StatisticScreenByDay />} />
+        <Route path="/admin/statisticbyyear"element={<StatisticScreenByYear />} />
         <Route path="/admin/piechart" element={<PieChartScreen />} />
+        <Route path="/blogdetail" element={<BlogDetailScreen />} />
+        <Route path="/blogbdetail" element={<BlogDetailBScreen />} />
       </Routes>
     </Router>
   );

@@ -11,9 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import django
-from django.utils.encoding import smart_str
-django.utils.encoding.smart_text = smart_str
+import cloudinary_storage
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,17 +42,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'base.apps.BaseConfig',
-    'django_jenkins'
+    'cloudinary_storage',
 ]
-
-JENKINS_TASKS = [
-    'django_jenkins.tasks.run_pep8',
-    'django_jenkins.tasks.run_pyflakes',
-    'django_jenkins.tasks.run_jslint',
-    'django_jenkins.tasks.run_csslint',
-    'django_jenkins.tasks.run_sloccount'
-]
-
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -133,6 +123,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE':'django.db.backends.postgresql',
+        # 'NAME':'hmvnnziw',
+        # 'USER':'hmvnnziw',
+        # 'PASSWORD':'kTNpSfP_hftClV6p-ORrQodtaek4TIkW',
+        # 'HOST':'john.db.elephantsql.com',
+        # 'PORT':'5432'
     }
 }
 
@@ -172,17 +168,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_URL = '/images/'
+MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
-MEDIA_ROOT = 'static/images/'
-
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dnpkcaztf',
+    'API_KEY': '637197449759623',
+    'API_SECRET': 'kTEks-JZLTWoRpNr5TfQbo5U_tk'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
