@@ -15,7 +15,7 @@ const AboutScreen = () => {
         <img src={require("../assets/img/about/a6.jpg")} alt=""></img>
         <div>
           <h2 className="who-we-are">Who We Are?</h2>
-          <p>
+          <p style={{fontFamily:'"Ubuntu", sans-serif'}}>
             We develop our own brands, treating each as an independent label
             with its own creative team and aesthetic. As a group, they have a
             few things in common: an effortless appeal, a focus on fit and an
@@ -24,13 +24,13 @@ const AboutScreen = () => {
             we consider (and reconsider) every last seam, pleat and button. It's
             why our clothes look and feel so good.
           </p>
-          <abbr title="">
+          <abbr title="" style={{fontFamily:'"Ubuntu", sans-serif'}}>
             We seek to create an inclusive world of self-expression where
             fashion takes off.{" "}
           </abbr>
           <br></br>
           <br></br>
-          <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">
+          <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%" style={{fontFamily:'"Ubuntu", sans-serif'}}>
             we seek to create an inclusive world of self-expression where
             fashion takes off.
           </marquee>
