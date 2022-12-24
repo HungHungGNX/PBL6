@@ -74,7 +74,7 @@ function HomeScreen() {
       </section>
 
       <section id="product1" className="section-p1 widthlength">
-        <h2>Feature Product</h2>
+        <h2>New Product</h2>
         <p>Our New Mordern Design</p>
         <div className="pro-container">
           {products.slice(0, 8).map((product) => (
