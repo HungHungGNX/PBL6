@@ -32,6 +32,15 @@ function ProfileScreen() {
   const orderListMy = useSelector((state) => state.orderListMy);
   const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
 
+  
+  const handleDateTime = (str) => {
+    const arr = str.split("T");
+    let objectDate = new Date(arr[0]);
+    arr[0] = objectDate.getDate() + "/" + (objectDate.getMonth() + 1) + "/" + objectDate.getFullYear();
+    arr[1] = arr[1].substring(0, 8);
+    return arr.join(" ");
+  };
+
   useEffect(() => {
     if (!userInfo) {
       navigate("/login");
@@ -158,11 +167,11 @@ function ProfileScreen() {
                     {orders.map((order) => (
                       <tr key={order._id}>
                         <td>{order._id}</td>
-                        <td>{order.createAt.substring(0, 10)}</td>
+                        <td>{handleDateTime(order.createAt)}</td>
                         <td>${order.totalPrice}</td>
                         <td>
                           {order.isPaid ? (
-                            order.paidAt
+                            handleDateTime(order.paidAt)
                           ) : (
                             <i
                               className="fas fa-times"
