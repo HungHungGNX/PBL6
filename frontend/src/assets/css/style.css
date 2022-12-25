@@ -1358,3 +1358,7 @@ strong {
     border-radius: 10px;
     text-align: center;
 }
+
+.blackbgr{
+  background: black;
+}
