@@ -171,7 +171,7 @@ function PlaceOrderScreen() {
                   <ListGroup.Item>
                     <Button
                       type="button"
-                      className="btn-block rounded-pill btn-proceed-checkout"
+                      className="btn-block rounded-pill btn-proceed-checkout blackbgr"
                       disabled={cart.cartItems === 0}
                       onClick={placeOrder}
                     >

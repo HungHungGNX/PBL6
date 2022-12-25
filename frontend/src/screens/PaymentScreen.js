@@ -62,7 +62,7 @@ function PaymentScreen() {
               <Button
                 type="submit"
                 variant="primary"
-                className=" rounded-pill btn-proceed-checkout mt-2"
+                className=" rounded-pill btn-proceed-checkout mt-2 blackbgr"
               >
                 Continue
               </Button>

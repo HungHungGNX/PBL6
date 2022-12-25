@@ -87,7 +87,7 @@ function ShippingScreen() {
                   <Button
                     type="submit"
                     variant="primary"
-                    className="mt-4 rounded-pill w-100 btn-sign-in"
+                    className="mt-4 rounded-pill w-100 btn-sign-in blackbgr"
                   >
                     Continue
                   </Button>

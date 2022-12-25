@@ -128,9 +128,10 @@ function CartScreen({ match }) {
                   <ListGroup.Item>
                     <Button
                       type="button"
-                      className="btn-block rounded-pill btn-proceed-checkout"
+                      className="btn-block rounded-pill btn-proceed-checkout blackbgr"
                       disabled={cartItems.length === 0}
                       onClick={checkoutHandler}
+                      
                     >
                       Proceed To Checkout
                     </Button>
