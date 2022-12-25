@@ -88,7 +88,7 @@ function ProductScreen() {
     const number = temp.length > 5 ? 5 : temp.length
 
 
-    for(let i = 0;;i++){
+    for(let i = 0;i<1000;i++){
       const random = Math.floor(Math.random() * (temp.length + 1));
       if(!containerRandom.includes(random) && temp[random]){
         containerRandom.push(random);
