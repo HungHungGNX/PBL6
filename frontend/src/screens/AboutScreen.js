@@ -40,12 +40,15 @@ const AboutScreen = () => {
           Download Our <a href="/#">App</a>{" "}
         </h1>
         <div className="video">
-          <video
+          {/* <video
             autoPlay
             muted
             loop
             src={require("../assets/img/about/1.mp4")}
-          ></video>
+          ></video> */}
+
+          
+<img src={require("../assets/img/mobile2.png")} alt="" />
         </div>
       </section>
 
