@@ -32,6 +32,15 @@ function ProfileScreen() {
   const orderListMy = useSelector((state) => state.orderListMy);
   const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
 
+  
+  const handleDateTime = (str) => {
+    const arr = str.split("T");
+    let objectDate = new Date(arr[0]);
+    arr[0] = objectDate.getDate() + "/" + (objectDate.getMonth() + 1) + "/" + objectDate.getFullYear();
+    arr[1] = arr[1].substring(0, 8);
+    return arr.join(" ");
+  };
+
   useEffect(() => {
     if (!userInfo) {
       navigate("/login");
@@ -125,13 +134,17 @@ function ProfileScreen() {
                   ></Form.Control>
                 </Form.Group>
 
+
+                <div className="update-profile">
                 <Button
                   type="submit"
                   variant="primary"
-                  className="mt-4 rounded-pill w-100 btn-sign-in"
+                  // className="mt-4 rounded-pill w-100 btn-sign-in"
+                  // style={{backgroundColor:"white",color: "black" ,width: "100px", padding: "14px 28px",  border: "2px solid black", margin: "4px 0px 0px"}}
                 >
                   Update
                 </Button>
+                </div>
               </Form>
             </Col>
 
@@ -158,11 +171,11 @@ function ProfileScreen() {
                     {orders.map((order) => (
                       <tr key={order._id}>
                         <td>{order._id}</td>
-                        <td>{order.createAt.substring(0, 10)}</td>
+                        <td>{handleDateTime(order.createAt)}</td>
                         <td>${order.totalPrice}</td>
                         <td>
                           {order.isPaid ? (
-                            order.paidAt
+                            handleDateTime(order.paidAt)
                           ) : (
                             <i
                               className="fas fa-times"
@@ -172,9 +185,15 @@ function ProfileScreen() {
                         </td>
                         <td>
                           <LinkContainer to={`/order/${order._id}`}>
-                            <Button className="btn-sm btn-block rounded-pill btn-proceed-checkout">
+
+                          <div className="ABCD">
+                            <Button 
+                            className=""
+                            style={{width:'100%'}}
+                            >
                               Details
                             </Button>
+                          </div>
                           </LinkContainer>
                         </td>
                       </tr>

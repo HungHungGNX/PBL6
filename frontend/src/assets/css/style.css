@@ -123,7 +123,7 @@ body {
 }
 /* =========================Hero 2========= */
 #hero {
-  background-image: url("../img/hero4.png");
+  background-image: url("../img/hero4a.png");
   height: 90vh;
   width: 100%;
   background-position: top 25% right 0;
@@ -505,7 +505,7 @@ a:hover {
 /* ==========++++++===================== */
 /* ********************************Shop Page******************/
 #page-header {
-  background-image: url("../img/banner/b1.jpg");
+  background-image: url("../img/banner/b1.png");
   width: 100%;
   height: 40vh;
   background-size: cover;
@@ -655,7 +655,8 @@ a:hover {
 }
 /* *************************About Us page*************** */
 #page-header.about-header {
-  background-image: url("../img/about/banner.png");
+  /* background-image: url("../img/about/banner.png"); */
+  background-image: url("../img/Hero8.png");
 }
 #about-head {
   display: flex;
@@ -983,7 +984,7 @@ a:hover {
 .input-month {
   outline: none;
   border: none;
-  border-bottom: 4px solid #6ad9e3;
+  border-bottom: 4px solid #6ae37d;
   text-align: center;
 }
 
@@ -1045,10 +1046,8 @@ strong {
   font-size: 14px;
 }
 
-
-
 .main-blog {
-  margin-top:80px;
+  margin-top: 80px;
 }
 
 .container-blog {
@@ -1116,3 +1115,283 @@ strong {
   border-radius: 10px;
   margin-bottom: 60px;
 }
+.filter-category {
+  position: relative;
+  bottom: 28px;
+}
+
+
+/* Product details */
+
+
+.main-product-details {
+  width: 1300px;
+  margin: 0 auto;
+  margin-top: 110px;
+}
+
+.container-img-product-details,
+.container-information-product-details {
+  float: left;
+  min-height: 500px;
+  width: 50%;
+}
+
+.container-img-product-details {
+  text-align: center;
+}
+
+.container-img-product-details img {
+  height: 556px;
+  border-radius: 10px;
+}
+
+.container-information-product-details {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.container-information-product-details h2 {
+  font-family: "Nunito", sans-serif;
+  font-size: 21px;
+  font-weight: 300;
+}
+
+.container-information-product-details .price-product-details {
+  width: 100%;
+  height: 66px;
+  background: #e6f0f4;
+  margin-top: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: "Nunito", sans-serif;
+  color: #05668d;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 46px;
+  text-align: center;
+}
+
+.container-information-product-details select {
+  margin-top: 30px;
+  padding: 8px 16px;
+  border: 1px solid #98a2b3;
+  border-radius: 4px;
+}
+.container-information-product-details input {
+  padding: 6px 16px;
+  max-width: 120px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid gray;
+  margin-left: 10px;
+}
+
+.btn-cart-product-details {
+  background-color: #e6f0f4;
+  max-width: 190px;
+  text-align: center;
+  padding: 10px 14px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 1.25px;
+  color: #05668d;
+  border: 1px solid #05668d;
+  border-radius: 4px;
+  margin: 0 auto;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.btn-cart-product-details:hover{
+  opacity: 0.8;
+}
+
+.description-product-details h2 {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.description-product-details p {
+  font-family: "Nunito";
+  font-weight: 300;
+  margin-top: 10px;
+  min-height: 150px;
+}
+
+.related-product-details {
+  margin-top: 40px;
+  min-height: 463px;
+  border: 1px solid Gray;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.related-product-details p {
+  font-family: "Nunito", sans-serif;
+  font-size: 21px;
+  font-weight: 300;
+}
+
+
+.item-product-details {
+  width: 220px;
+  height: 464px;
+  border-radius: 4px;
+  float: left;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 0 15px;
+  margin-top: 20px;
+}
+
+.item-product-details-img {
+  height: 60%;
+}
+.item-product-details img {
+  width: 100%;
+  border-radius: 4px;
+  height: 100%;
+}
+
+.item-product-details-description {
+  padding: 10px;
+}
+
+.item-product-details-description h2 {
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.item-product-details-description p {
+  margin-top: 10px;
+}
+
+.item-product-details-description .btn-add-cart-product-details {
+  background: #05668d;
+  font-family: "Nunito", sans-serif;
+  border-radius: 4px;
+  color: #fff;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.comment-product-details {
+  margin-top: 40px;
+  border: 1px solid Gray;
+  min-height: 600px;
+  border-radius: 10px;
+  padding: 50px;
+}
+
+.comment-product-details h2 {
+  font-family: "Nunito", sans-serif;
+  font-size: 21px;
+  font-weight: 300;
+}
+
+.item-review-product-details {
+  border: 1px solid Gray;
+  min-height: 200px;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top:20px;
+}
+
+.user-review {
+  font-size: 16px;
+  font-family: "Nunito", sans-serif;
+  font-size: 21px;
+}
+
+.user-comment {
+  font-family: "Nunito", sans-serif;
+  margin-top: 20px;
+}
+
+
+
+.my-clear::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+.write-review-product-details textarea{
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 18px;
+  outline: none;
+  width:100%;
+}
+
+.write-review-product-details button {
+  float: right;
+  outline: none;
+  width: 200px;
+  background-color: #e6f0f4;
+  max-width: 190px;
+  text-align: center;
+  padding: 10px 14px;
+  font-weight: 500;
+  color: #05668d;
+  border: 1px solid #05668d;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.update-profile  button{
+  width: 249px;
+
+  background-color: #e6f0f4;
+  max-width: 300px;
+  text-align: center;
+  padding: 10px 14px ;
+  font-weight: 500;
+  color: #05668d ;
+  border: 1px solid #05668d ;
+  border-radius: 4px;
+  margin-top: 30px;
+}
+
+
+.write-review-product-details select {
+    margin-bottom: 12px;
+    padding: 10px 16px;
+    border: none;
+    border-bottom: 2px solid lightblue;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.blackbgr{
+  background: black;
+}
+
+
+.ABCD button{
+  background-color: #e6f0f4;
+  text-align: center;
+  padding: 7px 7px ;
+  font-weight: 500;
+  color: #05668d ;
+  border: 1px solid #05668d ;
+  border-radius: 4px;
+  margin-top: 0px;
+}
+
+.about-img{
+  transition: transform ease 1s 
+}
+
+.about-img:hover{
+  transform: translateY(-80px);
+}
+

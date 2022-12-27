@@ -63,6 +63,14 @@ function OrderScreen({ match }) {
     document.body.appendChild(script);
   };
 
+  const handleDateTime = (str) => {
+    const arr = str.split("T");
+    let objectDate = new Date(arr[0]);
+    arr[0] = objectDate.getDate() + "/" + (objectDate.getMonth() + 1) + "/" + objectDate.getFullYear();
+    arr[1] = arr[1].substring(0, 8);
+    return arr.join(" ");
+  };
+
   useEffect(() => {
     if (!userInfo) {
       navigate("/login");
@@ -131,14 +139,14 @@ function OrderScreen({ match }) {
                     <p>
                       <strong>Shipping: </strong>
                       {order.shippingAddress.address},
-                      {order.shippingAddress.city}
-                      {order.shippingAddress.postalCode},
+                      {order.shippingAddress.city},{" "}
+                      {order.shippingAddress.postalCode},{" "}
                       {order.shippingAddress.country}
                     </p>
 
                     {order.isDelivered ? (
                       <Message variant="success">
-                        Delivered on {order.deliveredAt}
+                        Delivered on {handleDateTime(order.deliveredAt)}
                       </Message>
                     ) : (
                       <Message variant="warning">Not Delivered</Message>
@@ -149,11 +157,11 @@ function OrderScreen({ match }) {
                     <h2>Payment Method</h2>
                     <p>
                       <strong>Method: </strong>
-                      {order.paymentMethod}
+                      {order.paymentMethod} 
                     </p>
                     {order.isPaid ? (
                       <Message variant="success">
-                        Paid on {order.paidAt}
+                        Paid on {handleDateTime(order.paidAt)}
                       </Message>
                     ) : (
                       <Message variant="warning">Not Paid</Message>

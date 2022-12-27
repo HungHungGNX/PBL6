@@ -16,6 +16,7 @@ import Header from "../components/Header";
 function ProductListScreen({ match }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [textSearch, setTextSearch] = React.useState('')
 
   const productList = useSelector((state) => state.productList);
   const { loading, error, products, pages, page } = productList;
@@ -69,14 +70,25 @@ function ProductListScreen({ match }) {
     dispatch(createProduct());
   };
 
+  console.log(textSearch)
+
   return (
     <div className="mt-9 px-5">
       <Header></Header>
       <h1 style={{ textAlign: "center" }} className="highlight">
         Products
       </h1>
+  
       <Row className="align-items-center">
-        <Col md={7}></Col>
+        <Col md={7}>    <input
+        type="text"
+        onChange={(e) => {
+          setTextSearch(e.target.value);
+        }}
+        style={{width:'300px'}}
+        placeholder="Search"
+        className="input-month mb-4"
+      /></Col>
 
         <Col className="text-right" md={3}>
           <Button
@@ -120,7 +132,9 @@ function ProductListScreen({ match }) {
             </thead>
 
             <tbody>
-              {products.map((product) => (
+              {products.map((product) => {
+                if(!textSearch){
+                return (
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.name}</td>
@@ -144,10 +158,36 @@ function ProductListScreen({ match }) {
                     </Button>
                   </td>
                 </tr>
-              ))}
+              )}else if(product.name.toLowerCase().includes(textSearch.toLowerCase())){
+                return (
+                <tr key={product._id}>
+                  <td>{product._id}</td>
+                  <td>{product.name}</td>
+                  <td>${product.price}</td>
+                  <td>{product.category}</td>
+                  <td>{product.brand}</td>
+
+                  <td>
+                    <LinkContainer to={`/admin/product/${product._id}/edit`}>
+                      <Button variant="light" className="btn-sm">
+                        <i className="fas fa-edit"></i>
+                      </Button>
+                    </LinkContainer>
+
+                    <Button
+                      variant="danger"
+                      className="btn-sm"
+                      onClick={() => deleteHandler(product._id)}
+                    >
+                      <i className="fas fa-trash"></i>
+                    </Button>
+                  </td>
+                </tr>
+              )
+              }
+              })}
             </tbody>
           </Table>
-          {/* <Paginate pages={pages} page={page} isAdmin={true} /> */}
         </div>
       )}
     </div>

@@ -12,6 +12,7 @@ function UserListScreen() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate();
+    const [textSearch, setTextSearch] = React.useState('')
 
     const userList = useSelector(state => state.userList)
     const { loading, error, users } = userList
@@ -44,6 +45,15 @@ function UserListScreen() {
         <div className="mt-9 px-5"> 
         <Header></Header>
             <h1 style={{textAlign: 'center'}} className="highlight">Manager User</h1>
+            <input
+        type="text"
+        onChange={(e) => {
+          setTextSearch(e.target.value);
+        }}
+        style={{width:'300px'}}
+        placeholder="Search"
+        className="input-month mb-4"
+      />
             {loading
                 ? (<Loader />)
                 : error
@@ -61,7 +71,9 @@ function UserListScreen() {
                             </thead>
 
                             <tbody>
-                                {users.map(user => (
+                                {users.map(user =>{ 
+                                    if(!textSearch){
+                                        return (
                                     <tr key={user._id}>
                                         <td>{user._id}</td>
                                         <td>{user.name}</td>
@@ -84,7 +96,35 @@ function UserListScreen() {
                                             </Button>
                                         </td>
                                     </tr>
-                                ))}
+                                )
+                                    }
+                                    else if(user.name.toLowerCase().includes(textSearch.toLocaleLowerCase())){
+                                        return (
+                                    <tr key={user._id}>
+                                        <td>{user._id}</td>
+                                        <td>{user.name}</td>
+                                        <td>{user.email}</td>
+                                        <td>{user.isAdmin ? (
+                                            <i className='fas fa-check' style={{ color: 'green' }}></i>
+                                        ) : (
+                                                <i className='fas fa-check' style={{ color: 'red' }}></i>
+                                            )}</td>
+
+                                        <td>
+                                            <LinkContainer to={`/admin/user/${user._id}/edit`}>
+                                                <Button variant='light' className='btn-sm'>
+                                                    <i className='fas fa-edit'></i>
+                                                </Button>
+                                            </LinkContainer>
+
+                                            <Button variant='danger' className='btn-sm' onClick={() => deleteHandler(user._id)}>
+                                                <i className='fas fa-trash'></i>
+                                            </Button>
+                                        </td>
+                                    </tr>
+                                )
+                                    }  
+                                })}
                             </tbody>
                         </Table>
                     )}
