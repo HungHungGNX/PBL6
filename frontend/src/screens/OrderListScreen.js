@@ -36,7 +36,7 @@ function OrderListScreen() {
             let day = objectDate.getDate();
             let month = objectDate.getMonth();
             let year = objectDate.getFullYear();
-            arr[0] = day + "/" + month + "/" + year;
+            arr[0] = day + "/" + (month + 1) + "/" + year;
             arr[1] = arr[1].substring(0,8);
             return arr.join(' ')
     }
