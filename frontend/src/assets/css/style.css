@@ -1237,8 +1237,6 @@ strong {
   font-weight: 300;
 }
 
-.list-product-details {
-}
 
 .item-product-details {
   width: 220px;
@@ -1349,6 +1347,20 @@ strong {
   margin-top: 20px;
 }
 
+.update-profile  button{
+  width: 249px;
+
+  background-color: #e6f0f4;
+  max-width: 300px;
+  text-align: center;
+  padding: 10px 14px ;
+  font-weight: 500;
+  color: #05668d ;
+  border: 1px solid #05668d ;
+  border-radius: 4px;
+  margin-top: 30px;
+}
+
 
 .write-review-product-details select {
     margin-bottom: 12px;
@@ -1361,4 +1373,16 @@ strong {
 
 .blackbgr{
   background: black;
+}
+
+
+.ABCD button{
+  background-color: #e6f0f4;
+  text-align: center;
+  padding: 7px 7px ;
+  font-weight: 500;
+  color: #05668d ;
+  border: 1px solid #05668d ;
+  border-radius: 4px;
+  margin-top: 0px;
 }
