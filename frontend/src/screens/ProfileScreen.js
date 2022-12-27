@@ -134,13 +134,17 @@ function ProfileScreen() {
                   ></Form.Control>
                 </Form.Group>
 
+
+                <div className="update-profile">
                 <Button
                   type="submit"
                   variant="primary"
-                  className="mt-4 rounded-pill w-100 btn-sign-in"
+                  // className="mt-4 rounded-pill w-100 btn-sign-in"
+                  // style={{backgroundColor:"white",color: "black" ,width: "100px", padding: "14px 28px",  border: "2px solid black", margin: "4px 0px 0px"}}
                 >
                   Update
                 </Button>
+                </div>
               </Form>
             </Col>
 
@@ -181,9 +185,14 @@ function ProfileScreen() {
                         </td>
                         <td>
                           <LinkContainer to={`/order/${order._id}`}>
-                            <Button className="btn-sm btn-block rounded-pill btn-proceed-checkout">
+
+                          <div className="ABCD">
+                            <Button 
+                            className=""
+                            >
                               Details
                             </Button>
+                          </div>
                           </LinkContainer>
                         </td>
                       </tr>
