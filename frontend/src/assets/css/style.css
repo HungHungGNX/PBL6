@@ -1386,3 +1386,12 @@ strong {
   border-radius: 4px;
   margin-top: 0px;
 }
+
+.about-img{
+  transition: transform ease 1s 
+}
+
+.about-img:hover{
+  transform: translateY(-80px);
+}
+

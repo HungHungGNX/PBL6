@@ -137,10 +137,10 @@ function ProductScreen() {
                 <option selected disabled>
                   Size
                 </option>
+                <option value="">Size S</option>
                 <option value="">Size M</option>
                 <option value="">Size L</option>
-                <option value="">Size X</option>
-                <option value="">Size N</option>
+                <option value="">Size XL</option>
               </select>
 
               <input
@@ -254,7 +254,7 @@ function ProductScreen() {
               <Message variant="danger">{errorProductReview}</Message>
             )}
             {userInfo ? (
-              <div className="write-review-product-details">
+              <div className="write-review-product-details my-clear">
                 <select
                   as="select"
                   value={rating}

@@ -40,15 +40,8 @@ const AboutScreen = () => {
           Download Our <a href="/#">App</a>{" "}
         </h1>
         <div className="video">
-          {/* <video
-            autoPlay
-            muted
-            loop
-            src={require("../assets/img/about/1.mp4")}
-          ></video> */}
-
-          
-<img src={require("../assets/img/mobile2.png")} alt="" />
+          <img className="about-img" src={require("../assets/img/mobile3.png")} alt="" width="20%" style={{marginRight:'40px',borderRadius:'10px',boxShadow:'0 0 10px rgba(0,0,0.1)'}}/>
+            <img className="about-img" src={require("../assets/img/mobile2.png")} alt="" width="20%" style={{borderRadius:'10px',boxShadow:'0 0 10px rgba(0,0,0.1)'}} />
         </div>
       </section>
 

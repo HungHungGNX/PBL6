@@ -17,12 +17,21 @@ function ShopScreen() {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const [category, setCategory] = useState("");
+  const [sort, setSort] = useState();
   const { error, loading, products } = productList;
   const [searchParams, setSearchParams] = useSearchParams();
   const keyword = searchParams.get("keyword");
   useEffect(() => {
     dispatch(listProducts(keyword));
   }, [dispatch, keyword]);
+
+  if(products.length>0&&sort){
+    if(sort==="Ascending"){
+    products.sort(function(item1, item2){return Number(item1.price) - Number(item2.price)});
+    }else {
+      products.sort(function(item1, item2){return Number(item2.price) - Number(item1.price)});
+    }
+  }
 
   return (
     <div>
@@ -58,6 +67,26 @@ function ShopScreen() {
           <option value="Shoe">Shoe</option>
           <option value="Jean">Jean</option>
           <option value="ALL">All</option>
+        </select>
+        <select
+          className="input-month filter-category"
+          style={{
+            width: "180px",
+            marginLeft: "130px",
+            borderRadius: "10px",
+            fontSize: "20px",
+            borderBottom: '4px solid rgb(120, 196, 221)'
+          }}
+
+          onChange={(e) => {
+            setSort(e.target.value);
+          }}
+        >
+          <option selected disabled>
+            Sort
+          </option>
+          <option value="Ascending">Ascending</option>
+          <option value="Decrease">Decrease</option>
         </select>
       </Container>
       <div>
