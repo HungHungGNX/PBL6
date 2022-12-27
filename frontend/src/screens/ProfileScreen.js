@@ -189,6 +189,7 @@ function ProfileScreen() {
                           <div className="ABCD">
                             <Button 
                             className=""
+                            style={{width:'100%'}}
                             >
                               Details
                             </Button>
